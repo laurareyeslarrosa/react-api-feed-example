@@ -7,46 +7,52 @@ export default class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            githubData: [],
+            githubData: null,
             username: "",
-            requestFailed: false
+            requestFailed: false,
+            isSearchBtnEnabled: false
         };
+
+        this.handleInputSearchOnChange = this.handleInputSearchOnChange.bind(this);
+        this.handleBtnSearchOnClick = this.handleBtnSearchOnClick.bind(this);
     }
-    /*
-        componentDidMount() {
-            getGithubData(this, "githubData", "laurareyeslarrosa");
-        }
-    */
-/*
-    componentDidMount() {
-        getGithubData(this, "githubData", "asdasdasdadaads");
-    }
-*/
-    renderFailedRequest() {
+
+    renderSearchForm() {
         return (
-            <div>No user found</div>
+            <Search
+                isSearchBtnEnabled={this.state.isSearchBtnEnabled}
+                onChangeHandler={this.handleInputSearchOnChange}
+                onClickHandler={this.handleBtnSearchOnClick}
+                username={this.state.username} />
         )
     }
 
     renderSuccessRequest() {
         return (
-            <div>MAIN - {this.state.githubData.name}</div>
+            <Info githubData={this.state.githubData}/>
         )
     }
 
-    btnSearchClickHandler() {
-        console.log(this.state.username);
+    handleBtnSearchOnClick() {
         getGithubData(this, "githubData", this.state.username);
     }
 
+    handleInputSearchOnChange(event) {
+        this.setState({ username: event.target.value });
+        this.setState({ isSearchBtnEnabled: (!event.target.value == "") });
+    }
+
+    componentDidUpdate() {
+        if (this.state.requestFailed) {
+            alert("user not found");
+            this.setState({requestFailed: false});
+        } 
+    }
+
     render() {
-        console.log(this.state.githubData)
-        if (this.state.githubData === []) {
-            if (this.state.requestFailed)
-                return this.renderFailedRequest()
-            else
-                return this.renderSuccessRequest()
-        } else
-            return <Search onClickHandler={this.btnSearchClickHandler} username={this.state.username}/>;
+        if (this.state.githubData)
+            return this.renderSuccessRequest()
+        else
+            return this.renderSearchForm()
     }
 }

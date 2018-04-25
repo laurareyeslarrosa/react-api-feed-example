@@ -5,8 +5,8 @@ export default class Search extends React.Component {
         return(
             <div>
                 <div>Search a gitbuh user</div>
-                <input type="text" value={this.props.username}/>
-                <button onClick={this.props.onClickHandler}>Search</button>
+                <input onChange={this.props.onChangeHandler} type="text" value={this.props.username} />
+                <button disabled={!this.props.isSearchBtnEnabled} onClick={this.props.onClickHandler}>Search</button>
             </div>
         )
     }

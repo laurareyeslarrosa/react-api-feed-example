@@ -10,6 +10,7 @@ class App extends Component {
       <div className="App">
         <GitHub username="jackfranklin"></GitHub>
         <GitHub username="laurareyeslarrosa"></GitHub>
+        <GitHub username="laurareyeslarrosa"></GitHub>
       </div>
     );
   }

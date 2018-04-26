@@ -50,6 +50,7 @@ export default class Main extends React.Component {
     }
 
     render() {
+        console.log(this.state.githubData);
         if (this.state.githubData)
             return this.renderSuccessRequest()
         else

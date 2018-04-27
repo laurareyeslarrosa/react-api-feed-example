@@ -29,7 +29,7 @@ export default class Main extends React.Component {
 
     renderSuccessRequest() {
         return (
-            <Info githubData={this.state.githubData}/>
+            <Info githubData={this.state.githubData} />
         )
     }
 
@@ -45,12 +45,11 @@ export default class Main extends React.Component {
     componentDidUpdate() {
         if (this.state.requestFailed) {
             alert("user not found");
-            this.setState({requestFailed: false});
-        } 
+            this.setState({ requestFailed: false });
+        }
     }
 
     render() {
-        console.log(this.state.githubData);
         if (this.state.githubData)
             return this.renderSuccessRequest()
         else

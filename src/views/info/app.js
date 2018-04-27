@@ -14,7 +14,6 @@ export default class Info extends React.Component {
     }
 
     render() {
-        console.log(this.state.githubRepoData)
         return (
             <div>MAIN - {this.props.githubData.name}</div>
         )

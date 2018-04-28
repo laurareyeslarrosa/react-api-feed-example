@@ -1,4 +1,5 @@
 body {
+    background: #e2e2e2;
     margin: 0;
     width: 100%;
     height: 100%;
@@ -8,6 +9,16 @@ body {
 
 #root {
     height: 100%;
+}
+
+.titleContainer {
+    font-family: 'Lobster', sans-serif;
+    font-size: 35px;
+    margin-bottom: 0.3em;
+}
+
+.titleContainer > span {
+    color: #6D93B2;
 }
 
 /* #region ESTILOS PANEL SEARCH */
@@ -36,16 +47,6 @@ body {
     }
 }
 
-.searchPanel > .titleContainer {
-    font-family: 'Lobster', sans-serif;
-    font-size: 35px;
-    margin-bottom: 0.3em;
-}
-
-.searchPanel > .titleContainer > span {
-    color: #6D93B2;
-}
-
 .searchPanel > .subtitleContainer {
     font-size: 12px;
     margin-bottom: 2em;
@@ -71,6 +72,72 @@ body {
 
 /* #region ESTILOS PANEL RESULTADOS */
 
+.headerContainer {
+    background-color: #3d3d4a!important;
+}
 
+.headerInfoContainer {
+    background: 
+    linear-gradient( rgba(61, 61, 74, 0.01), rgba(61, 61, 74, 0.55) ), url(/static/media/searchBackground.8ef3781c.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    padding: 2em 0;
+    color: #f7f8f9;
+}
+
+.headerInfoContainer .usernameContainer {
+    font-size: 40px;
+    font-family: 'Lobster', sans-serif;
+}
+
+.headerInfoContainer .userstatsContainer {
+    margin-top: 2em;
+    padding-bottom: 2em;
+}
+
+.headerInfoContainer .userstatsContainer > div {
+    width: 50%;
+    float: left;
+}
+
+.headerInfoContainer .userstatsContainer > div > div:first-of-type {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.descContainer {
+    background: #3d3d4a;
+    color: #f7f8f9;
+    text-align: center;
+    font-style: italic;
+    padding: 1em 0;
+}
+
+.repositoryItemContainer {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.repositoryItem {
+    width: 100%;
+    padding: 0.5em;
+    word-wrap: break-word; 
+}
+
+.repositoryItemDescription {
+    height: 7em;
+}
+
+@media(min-width:768px) {
+    .repositoryItem {
+        width: 25em;
+    }
+}
 
 /* #endregion */

@@ -3,23 +3,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MyMuiTheme from './../../content/styles/index.style';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
-import IconButton from 'material-ui/IconButton';
 import Paper from 'material-ui/Paper';
 import Dialog from 'material-ui/Dialog';
-
-const actions = [
-      <FlatButton
-        label="Cancel"
-        primary={true}
-        onClick={this.handleClose}
-      />,
-      <FlatButton
-        label="Submit"
-        primary={true}
-        keyboardFocused={true}
-        onClick={this.handleClose}
-      />,
-    ];
+import Title from './../../components/title/title';
 
 export default class Search extends React.Component {
     render() {
@@ -27,7 +13,7 @@ export default class Search extends React.Component {
             <MuiThemeProvider muiTheme={MyMuiTheme}>
                 <div className="searchPanelTab">
                     <Paper className="searchPanel">
-                        <div className="titleContainer">Find <span>me</span> up</div>
+                        <Title/>
                         <div className="subtitleContainer">A new and easy way to find your favorite github users's work</div>
                         <div className="inputContainer">
                             <TextField

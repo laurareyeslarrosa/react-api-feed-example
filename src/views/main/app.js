@@ -18,7 +18,8 @@ export default class Main extends React.Component {
         this.handleBtnSearchOnClick = this.handleBtnSearchOnClick.bind(this);
         this.handleNotFoundDialogOpen = this.handleNotFoundDialogOpen.bind(this);
         this.handleNotFoundDialogClose = this.handleNotFoundDialogClose.bind(this);
-    }
+        this.handleBtnBackOnClick = this.handleBtnBackOnClick.bind(this);
+ }
 
     renderSearchForm() {
         return (
@@ -35,13 +36,16 @@ export default class Main extends React.Component {
 
     renderSuccessRequest() {
         return (
-            <Info githubData={this.state.githubData} />
+            <Info 
+                githubData={this.state.githubData} 
+                goBackBtnClickHandler={this.handleBtnBackOnClick}
+            />
         )
     }
-
-
-    /*
-            */
+    
+    handleBtnBackOnClick() {
+        this.setState({githubData: null});
+    }
 
     handleBtnSearchOnClick() {
         getGithubData(this, "githubData", this.state.username);

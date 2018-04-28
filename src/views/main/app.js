@@ -10,11 +10,14 @@ export default class Main extends React.Component {
             githubData: null,
             username: "",
             requestFailed: false,
-            isSearchBtnEnabled: false
+            isSearchBtnEnabled: false,
+            openNotFoundDialog: false
         };
 
         this.handleInputSearchOnChange = this.handleInputSearchOnChange.bind(this);
         this.handleBtnSearchOnClick = this.handleBtnSearchOnClick.bind(this);
+        this.handleNotFoundDialogOpen = this.handleNotFoundDialogOpen.bind(this);
+        this.handleNotFoundDialogClose = this.handleNotFoundDialogClose.bind(this);
     }
 
     renderSearchForm() {
@@ -23,7 +26,10 @@ export default class Main extends React.Component {
                 isSearchBtnEnabled={this.state.isSearchBtnEnabled}
                 onChangeHandler={this.handleInputSearchOnChange}
                 onClickHandler={this.handleBtnSearchOnClick}
-                username={this.state.username} />
+                username={this.state.username} 
+                dialogNotFoundOpen={this.state.openNotFoundDialog}
+                dialogNotFoundOnRequestClose={this.handleNotFoundDialogClose}            
+                />
         )
     }
 
@@ -32,6 +38,10 @@ export default class Main extends React.Component {
             <Info githubData={this.state.githubData} />
         )
     }
+
+
+    /*
+            */
 
     handleBtnSearchOnClick() {
         getGithubData(this, "githubData", this.state.username);
@@ -44,9 +54,17 @@ export default class Main extends React.Component {
 
     componentDidUpdate() {
         if (this.state.requestFailed) {
-            alert("user not found");
+            this.handleNotFoundDialogOpen();
             this.setState({ requestFailed: false });
         }
+    }
+
+    handleNotFoundDialogOpen() {
+        this.setState({openNotFoundDialog: true});
+    }
+
+    handleNotFoundDialogClose() {
+        this.setState({openNotFoundDialog: false});      
     }
 
     render() {

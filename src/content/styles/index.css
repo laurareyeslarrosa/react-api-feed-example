@@ -4,7 +4,7 @@ body {
     height: 100%;
     position: absolute;
     font-family: 'Roboto', sans-serif;
-}
+ }
 
 #root {
     height: 100%;
@@ -12,8 +12,12 @@ body {
 
 /* #region ESTILOS PANEL SEARCH */
 
-.searchPanelContainer {
-    background: aliceblue;
+.searchPanelTab {
+    background: url('./../images/searchBackground.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     text-align: center;
     height: 100%;
     display: flex;
@@ -21,10 +25,45 @@ body {
     justify-content: center;
 }
 
+.searchPanel {
+    opacity: 0.7;
+    padding: 1em 0;
+}
+
 @media(min-width:768px) {
-    .searchPanelContainer {
+    .searchPanel {
         margin: 0 20%;
     }
+}
+
+.searchPanel > .titleContainer {
+    font-family: 'Lobster', sans-serif;
+    font-size: 35px;
+    margin-bottom: 0.3em;
+}
+
+.searchPanel > .titleContainer > span {
+    color: #6D93B2;
+}
+
+.searchPanel > .subtitleContainer {
+    font-size: 12px;
+    margin-bottom: 2em;
+}
+
+.searchPanel > .inputContainer {
+    float: left;
+    width: 75%;
+}
+
+.searchPanel > .buttonContainer {
+    float: left;
+    width: 25%;    
+}
+
+.searchPanel > .buttonContainer > button {
+    height: 2.5em!important;
+    border-radius: 0!important;
 }
 
 /* #endregion */
